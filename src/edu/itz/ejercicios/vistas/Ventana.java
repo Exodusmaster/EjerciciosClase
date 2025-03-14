@@ -5,6 +5,7 @@
 package edu.itz.ejercicios.vistas;
 
 import edu.itz.ejercicios.controles.Control;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 /**
@@ -31,20 +32,35 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtContenido = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        txtSalida = new javax.swing.JTextArea();
+        lblArchivo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuAbrir = new javax.swing.JMenuItem();
         mnuClean = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        MnuCuenta = new javax.swing.JMenuItem();
+        MnuCoincidencia = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+
+        jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtContenido.setEditable(false);
         txtContenido.setColumns(20);
         txtContenido.setRows(5);
         jScrollPane1.setViewportView(txtContenido);
+
+        jLabel1.setText("Archivo:");
+
+        txtSalida.setEditable(false);
+        txtSalida.setColumns(20);
+        txtSalida.setRows(5);
+        txtSalida.setAutoscrolls(false);
 
         jMenu1.setText("Archivo");
 
@@ -66,6 +82,26 @@ public class Ventana extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu3.setText("Procesar");
+
+        MnuCuenta.setText("Cuenta");
+        MnuCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnuCuentaActionPerformed(evt);
+            }
+        });
+        jMenu3.add(MnuCuenta);
+
+        MnuCoincidencia.setText("Coincidencias");
+        MnuCoincidencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnuCoincidenciaActionPerformed(evt);
+            }
+        });
+        jMenu3.add(MnuCoincidencia);
+
+        jMenuBar1.add(jMenu3);
+
         jMenu2.setText("Acerca De");
         jMenuBar1.add(jMenu2);
 
@@ -75,15 +111,31 @@ public class Ventana extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblArchivo)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSalida, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 191, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblArchivo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
+                .addComponent(txtSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -97,18 +149,46 @@ c.abrirArchivo();
         c.limpiar();
     }//GEN-LAST:event_mnuCleanActionPerformed
 
+    private void MnuCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuCuentaActionPerformed
+        
+//c.contar();
+   c.idconAFD();
+    }//GEN-LAST:event_MnuCuentaActionPerformed
+
+    private void MnuCoincidenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuCoincidenciaActionPerformed
+
+        // TODO add your handling code here:
+        //c.coincidencia();
+        c.cuentaIdnum();
+    }//GEN-LAST:event_MnuCoincidenciaActionPerformed
+
     public JTextArea getTxtContenido() {
         return txtContenido;
     }
 
+    public JLabel getLblArchivo() {
+        return lblArchivo;
+    }
+
+    public JTextArea getTxtSalida() {
+        return txtSalida;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MnuCoincidencia;
+    private javax.swing.JMenuItem MnuCuenta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblArchivo;
     private javax.swing.JMenuItem mnuAbrir;
     private javax.swing.JMenuItem mnuClean;
     private javax.swing.JTextArea txtContenido;
+    private javax.swing.JTextArea txtSalida;
     // End of variables declaration//GEN-END:variables
 }
