@@ -45,6 +45,8 @@ public class Ventana extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         MnuCuenta = new javax.swing.JMenuItem();
         MnuCoincidencia = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        mnuLexemas = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         jLabel3.setText("jLabel3");
@@ -101,6 +103,18 @@ public class Ventana extends javax.swing.JFrame {
         jMenu3.add(MnuCoincidencia);
 
         jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Proyecto");
+
+        mnuLexemas.setText("Lexemas");
+        mnuLexemas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuLexemasActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mnuLexemas);
+
+        jMenuBar1.add(jMenu4);
 
         jMenu2.setText("Acerca De");
         jMenuBar1.add(jMenu2);
@@ -162,6 +176,12 @@ c.abrirArchivo();
         c.cuentaIdnum();
     }//GEN-LAST:event_MnuCoincidenciaActionPerformed
 
+    private void mnuLexemasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLexemasActionPerformed
+        txtSalida.setText("");
+        c.eRseparaPalabras();//encuentaPalabras();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuLexemasActionPerformed
+
     public JTextArea getTxtContenido() {
         return txtContenido;
     }
@@ -183,11 +203,13 @@ c.abrirArchivo();
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblArchivo;
     private javax.swing.JMenuItem mnuAbrir;
     private javax.swing.JMenuItem mnuClean;
+    private javax.swing.JMenuItem mnuLexemas;
     private javax.swing.JTextArea txtContenido;
     private javax.swing.JTextArea txtSalida;
     // End of variables declaration//GEN-END:variables

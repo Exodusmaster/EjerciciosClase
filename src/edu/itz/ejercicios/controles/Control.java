@@ -8,10 +8,13 @@ import edu.itz.ejercicios.vistas.Ventana;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -256,4 +259,71 @@ mom_123,779-adi_0s+marcha2025.33*/
 
     }
 
+    public void encuentaPalabras() {
+        //lexemas componente lexico
+        //tiene un significado en particular 
+        //identificadores, numeros, p.r operadpres (criticos, logicos)
+        ArrayList<String> elementos = new ArrayList<String>();
+        String elem = "";
+        String txt = v.getTxtContenido().getText();
+       
+        for (int i = 0; i < txt.length(); i++) {
+            char c = txt.charAt(i);
+            if (Character.isLetter(c)) {
+                elem = "";
+                while (Character.isLetterOrDigit(c) || c == '_') {
+                    elem += c;
+                    i++;
+                    if (i >= txt.length()) {
+                        break;
+                    }
+                    c = txt.charAt(i);
+                   
+                }
+                elementos.add(elem);
+                continue;
+                
+            }//Cierra if de letra
+            if (c >= '1' && c <= '9') {
+                elem = "";
+                while (Character.isLetterOrDigit(c)) {
+                    elem += c;
+                    i++;
+                    if (i >= txt.length()) {
+                        break;
+                    }
+                    c = txt.charAt(i);
+                     System.out.println(i);
+                }
+                elementos.add(elem);
+                continue;
+            }
+            switch (c) {
+                case '+', '-', '*', '/' -> {
+                    elementos.add(c + "");
+                    break;
+                }
+                default ->
+                    v.getTxtSalida().append("Caracter No valido: " + "\"" + c + "\"\n");
+            }
+        }//Cierra For
+        muestraLista(elementos, v.getTxtSalida());
+    }
+    public void eRseparaPalabras(){
+    String text=v.getTxtContenido().getText();
+    ArrayList<String> elemnto = new ArrayList();
+    Pattern p = Pattern.compile("[A-Za-z]\\w|[1-9]\\d*|0|[+\\-*/]");
+    Matcher match = p.matcher(text);
+        while (match.find()){
+        elemnto.add(match.group());
+        
+        }//while end
+        muestraLista(elemnto, v.getTxtSalida());
+       
+    }//fin de metodo e RsepararPalabras
+    private void muestraLista(Collection l, JTextArea t){
+     for (Object elemntos : l) {
+            t.append(elemntos + " \n");
+        }//for end
+    }
 }
